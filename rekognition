@@ -1,0 +1,77 @@
+Build an image labels generator using Amazon Rekognition
+
+In this project, we intend to build image labels generator, using Amazon Rekognition. Once built, it will be able to recognize and label images. For example, if you have a photo of a car, Amazon Recognition will be able to identify what it is, and label the image as a car.
+
+Services Used
+Amazon S3: For storing the images in the process of generating labels.
+Amazon Rekognition: To analyse images and generate image labels.
+AWS CLI: Interacting with AWS services through command line interface(CLI).
+
+Procedure
+
+Create an Amazon S3 Bucket
+Log in to your AWS Management Console.
+Navigate to the Amazon S3 service from the search bar. An S3 bucket is like a virtual storage box in the cloud where you can keep your files safe and easily accessible with permissions.
+Click on ‘Create Bucket’.
+Choose a unique name for your (aws-rekognition-label-images123) bucket and select the region the want the storage bucket.
+Leave the default settings for the rest of the options and click ‘Create Bucket’.
+We will use this bucket to store the images on which labels are to be generated. Let’s go ahead and upload some images in the S3 bucket.
+
+Once the bucket is created, navigate to the bucket.
+Click on the ‘Upload’ button and select the images you want to analyse from your system.
+Click on Upload. Your image has now been uploaded in the S3 bucket.
+
+Installing the AWS Command line interface(CLI)
+Open command prompt.
+Run the command appropriate for your operating system to install the AWS CLI.
+
+Configure AWS CLI
+To configure your AWS CLI, run the following command in your terminal:
+
+aws configure
+
+Running this command will ask for a access key and secret access key.
+To access your AWS account from CLI, you need to set up a user account associated with it and these keys are used for the authentication for accessing the AWS services.
+Login to your AWS Management console and search for IAM in the search bar.
+Navigate to Users and click on Create User.
+Give an appropriate user name and click Next.
+For the Permission options, choose the option ‘Attach policies directly’ and attach the ‘AdministratorAccess’ policy.
+Click on Next and Create User.
+Navigate to the user you created, and click on create Access key under the Access Keys option.
+Choose the Command Line Interface(CLI) as the use case, check the confirmation box and click Next.
+
+Provide a suitable description about purpose of the Access key and Create Access Key.
+
+You will be provided with an Access key and a Secret Access Key. These keys can be used to access your AWS services so make sure these are kept confidential.
+
+Some best practices while using Access Keys:
+- Never store your access key in plain text, in a code repository, or in code.
+- Disable or delete access key when no longer needed.
+- Enable least-privilege permissions.
+- Rotate access keys regularly.
+Go back to your terminal or command prompt and paste the keys that you just generated.
+Choose the region (Make sure the CLI default region and the S3 bucket region are the same)
+
+Importing Libraries
+Open your preferred visual studio to and create a .py file for performing your coding.
+Open a terminal and install the libraries needed for this project.
+
+pip install boto3
+pip install matplotlib
+
+boto3 for interacting with AWS services.
+matplotlib for visualization.
+PIL (Python Imaging Library) for handling image data.
+BytesIO from the io module to work with image data.
+
+Final Code needed attached in file
+
+Running your Python file
+Open the terminal in the directory where your Python file is present and run the command:
+python name_of_python_file.py
+You will get an output with 10 detected labels and their confidence levels and a pop-up screen displaying the image that was uploaded on your S3 bucket with the bounding boxes present on the generated labels
+
+
+
+
+
